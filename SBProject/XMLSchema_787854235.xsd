@@ -1,0 +1,28 @@
+<xs:schema targetNamespace="http://www.turktelekom.com.tr/b2bgw/cdm/ProductOrderSync/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:tns="http://www.turktelekom.com.tr/b2bgw/cdm/ProductOrderSync/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:b2bcdm="http://www.turktelekom.com.tr/b2bgw/cdm/1.0" xmlns:b2bcom="http://www.turktelekom.com.tr/b2bgw/common/1.0">
+<!-- ========================= 
+-->
+    <xs:import schemaLocation="XMLSchema_1777483057.xsd" namespace="http://www.turktelekom.com.tr/b2bgw/common/1.0"/>
+    <xs:import schemaLocation="XMLSchema_-1598800064.xsd" namespace="http://www.turktelekom.com.tr/b2bgw/cdm/1.0"/>
+
+<!-- ========================= 
+-->
+    <xs:element name="productOrderRequest" type="tns:ProductOrderRequest"/>
+    <xs:element name="productOrderResponse" type="tns:ProductOrderResponse"/>
+
+<!-- ========================= 
+-->
+    <xs:complexType name="ProductOrderRequest">
+        <xs:sequence>
+            <xs:element ref="b2bcdm:productOrder"/>
+        </xs:sequence>
+    </xs:complexType>
+
+<!-- ========================= 
+-->
+    <xs:complexType name="ProductOrderResponse">
+        <xs:choice>
+            <xs:element ref="b2bcdm:productOrder" minOccurs="0" maxOccurs="1"/>
+            <xs:element ref="b2bcom:fault" minOccurs="0" maxOccurs="1"/>
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>

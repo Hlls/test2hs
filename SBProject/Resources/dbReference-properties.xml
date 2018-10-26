@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <entry key="root_descriptor_alias">ISS_TO_GW_LOG_POINT2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.STATUS:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.FLOW_ID:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.DESTINATION_ID:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.IP_ADDRESS:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_table_type">TABLE</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.USER_ID:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.REQUEST_ID:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.ACTIVITY_STATUS:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.STATUS:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.TIMESTAMP:db_column_type">DATE</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.STATUS:db_column_size">20</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.REQUEST_ID:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_12">ID</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.BODY:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.SOURCE_ID:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.ID:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_11">IP_ADDRESS</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.WS_METHOD_NAME:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.SOURCE_ID:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_10">STATUS</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.IP_ADDRESS:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.TIMESTAMP:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.DESTINATION_ID:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.ACTIVITY_STATUS:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.REQUEST_ID:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.ID:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.BODY:db_column_size">4000</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.ID:db_column_size">20</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.SOURCE_ID:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.BUSINESS_ID:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.IP_ADDRESS:db_column_size">20</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.DESTINATION_ID:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.BUSINESS_ID:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.USER_ID:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.ACTIVITY_STATUS:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.WS_METHOD_NAME:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.BODY:db_column_not_null">false</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_9">WS_METHOD_NAME</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.BUSINESS_ID:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_8">BODY</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_7">FLOW_ID</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_6">USER_ID</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_5">TIMESTAMP</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_4">SOURCE_ID</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_3">REQUEST_ID</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_2">DESTINATION_ID</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_1">BUSINESS_ID</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2:db_column_0">ACTIVITY_STATUS</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.WS_METHOD_NAME:db_column_size">50</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.FLOW_ID:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.USER_ID:db_column_type">VARCHAR2</entry>
+   <entry key="ISS_TO_GW_LOG_POINT2.FLOW_ID:db_column_not_null">false</entry>
+</properties>

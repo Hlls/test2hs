@@ -1,0 +1,14 @@
+<adapter-config name="dbReference" adapter="db" wsdlLocation="dbReference.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="INNOVA_ISS_TEST_CONN" location="eis/DB/B2BGW"/>
+  <endpoint-interaction portType="dbReference_ptt" operation="insert">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="dbReference.IssToGwLogPoint2"/>
+      <property name="DmlType" value="insert"/>
+      <property name="MappingsMetaDataURL" value="dbReference-or-mappings.xml"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+      <property name="DetectOmissions" value="true"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

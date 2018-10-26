@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process name="SplitJoin"
+              targetNamespace="http://xmlns.oracle.com/ServiceBusApplication1/SBProject/"
+              xmlns:tns="http://xmlns.oracle.com/ServiceBusApplication1/SBProject/"
+              xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+              xmlns:rescon="http://www.bea.com/alsb/flow/resources/config"
+              xmlns:bea="http://www.bea.com/bpel/ui/extensions"
+              xmlns:ext="http://www.bea.com/bpel/extensions"
+              xmlns:expr="http://www.bea.com/wli/sb/stages/config"
+              xmlns:trf="http://www.bea.com/wli/sb/stages/transform/config"
+              xmlns:bind="http://xmlns.oracle.com/ServiceBusApplication1/SBProject/SplitJoin" 
+              bea:name="SplitJoin"
+              rescon:snippetVersion="1.0"
+              xmlns:ns0="http://www.bea.com/wli/sb/reference" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:upd="http://www.example.org/ns/updtstock"
+              xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/file/ServiceBusApplication1/SBProject/fileReference"
+              xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/file/ServiceBusApplication1/SBProject/fileReference_2"
+              xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication1/SBProject/dbReference"
+              xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReference">
+    <bpel:partnerLinks>
+        <bpel:partnerLink name="SplitJoin" partnerLinkType="tns:SplitJoin"
+	                         myRole="SplitJoin">
+        </bpel:partnerLink>
+        <bpel:partnerLink name="fileReference_2" partnerLinkType="tns:fileReference_2" partnerRole="fileReference_2"/>
+        <bpel:partnerLink name="dbReference" partnerLinkType="tns:dbReference" partnerRole="dbReference"/>
+    </bpel:partnerLinks>
+
+	   <bpel:variables>
+        <bpel:variable name="request"
+	                      messageType="bind:requestMessage">
+	       </bpel:variable>
+        <bpel:variable name="test1" element="upd:UpdateStock"/>
+       
+        <bpel:variable name="test2a" messageType="ns2:Write_msg"/>
+        <bpel:variable name="dbVar" messageType="ns3:IssToGwLogPoint2Collection_msg"/>
+    </bpel:variables>
+
+    <bpel:sequence>
+        <bpel:receive partnerLink="SplitJoin" operation="execute" variable="request" createInstance="yes">
+            <rescon:receiveInfo>
+                <rescon:wsdl ref="SBProject/SplitJoin" binding="bind:execute_bind"/>
+            </rescon:receiveInfo>
+        </bpel:receive>
+        <bpel:flow>
+            <bpel:scope>
+                <bpel:sequence>
+                    <bpel:assign>
+                        <bpel:extensionAssignOperation>
+                            <trf:assign varName="dbVar.IssToGwLogPoint2Collection">
+                                <trf:expr>
+                                    <expr:xqueryText>$request.part1/upd:productId</expr:xqueryText>
+                                </trf:expr>
+                            </trf:assign>
+                        </bpel:extensionAssignOperation>
+                    </bpel:assign>
+                    <bpel:invoke partnerLink="dbReference" operation="insert" inputVariable="dbVar">
+                        <rescon:invokeInfo>
+                            <rescon:service ref="SBProject/dbReference" xsi:type="ns0:BusinessServiceRef"/>
+                        </rescon:invokeInfo>
+                    </bpel:invoke>
+                </bpel:sequence>
+            </bpel:scope>
+            <bpel:scope>
+                <bpel:sequence>
+                    <bpel:assign>
+                        <bpel:extensionAssignOperation>
+                            <trf:assign varName="test2a.body">
+                                <trf:expr>
+                                    <expr:xqueryText>$request.part1/upd:productId</expr:xqueryText>
+                                </trf:expr>
+                            </trf:assign>
+                        </bpel:extensionAssignOperation>
+                    </bpel:assign>
+                    <bpel:invoke partnerLink="fileReference_2" operation="Write" inputVariable="test2a">
+                        <rescon:invokeInfo>
+                            <rescon:service ref="SBProject/fileReference_2" xsi:type="ns0:BusinessServiceRef"/>
+                        </rescon:invokeInfo>
+                    </bpel:invoke>
+                </bpel:sequence>
+            </bpel:scope>
+        </bpel:flow>
+    </bpel:sequence>
+</bpel:process>

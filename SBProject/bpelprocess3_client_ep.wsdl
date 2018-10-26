@@ -1,0 +1,53 @@
+<wsdl:definitions name="BPELProcess3" targetNamespace="http://xmlns.oracle.com/b2bgw/DenemeComposite/BPELProcess3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/b2bgw/DenemeComposite/BPELProcess3" xmlns:ns1="http://www.turktelekom.com.tr/b2bgw/cdm/ProductOrderSync/1.0" xmlns:com="http://www.turktelekom.com.tr/b2bgw/common/1.0" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://www.turktelekom.com.tr/logger/common/1.0">
+    <wsdl:documentation>
+        <abstractWSDL>http://N109815.innova.com.tr:7101/soa-infra/services/default/DenemeComposite!1.0/WSDLs/BPELProcess3.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="BPELProcess3">
+        <plnk:role name="BPELProcess3Provider" portType="client:BPELProcess3"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://www.turktelekom.com.tr/b2bgw/cdm/ProductOrderSync/1.0" schemaLocation="XMLSchema_787854235.xsd"/>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://www.turktelekom.com.tr/b2bgw/common/1.0" schemaLocation="XMLSchema_1777483057.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.turktelekom.com.tr/logger/common/1.0" schemaLocation="XMLSchema_-760469561.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="BPELProcess3RequestMessage">
+        <wsdl:part name="payload" element="ns1:productOrderRequest"/>
+    </wsdl:message>
+    <wsdl:message name="BPELProcess3ResponseMessage">
+        <wsdl:part name="payload" element="ns1:productOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GenericHeader">
+        <wsdl:part name="b2bgwHeader" element="com:header"/>
+    </wsdl:message>
+    <wsdl:portType name="BPELProcess3">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:BPELProcess3RequestMessage"/>
+            <wsdl:output message="client:BPELProcess3ResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BPELProcess3SOAP11Binding" type="client:BPELProcess3">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="http://xmlns.oracle.com/b2bgw/DenemeComposite/BPELProcess3/process"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="payload"/>
+                <soap:header message="client:GenericHeader" part="b2bgwHeader" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="payload"/>
+                <soap:header message="client:GenericHeader" part="b2bgwHeader" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="bpelprocess3_client_ep">
+        <wsdl:port name="BPELProcess3_pt" binding="client:BPELProcess3SOAP11Binding">
+            <soap:address location="http://n109815.innova.com.tr:7101/soa-infra/services/default/DenemeComposite/bpelprocess3_client_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
